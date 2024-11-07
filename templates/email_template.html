@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <p>Dear {{ recipient_name }},</p>
+
+    <p>We would like to inform you about the job status for <strong>{{ job_name }}</strong> in the <strong>{{ project_name }}</strong> project. Below are the details:</p>
+
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+        <thead>
+            <tr>
+                <th>Job Name</th>
+                <th>Job ID</th>
+                <th>Job Status</th>
+                <th>Execution Time (minutes)</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                {% if job_status == 'Failed' %}
+                <th>Error Message</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ job_name }}</td>
+                <td>{{ job_id }}</td>
+                <td>{{ job_status }}</td>
+                <td>{{ execution_time }}</td>
+                <td>{{ Date }}</td>
+                <td>{{ start_time }}</td>
+                <td>{{ end_time }}</td>
+                {% if job_status == 'Failed' %}
+                <td>{{ error_message }}</td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+
+    <p>This is an automated notification from the {{ automation_team_name }}. For any questions, please reach out to <a href="mailto:{{ support_email }}">{{ support_email }}</a>.</p>
+
+    <p>Best regards,<br>
+    {{ automation_team_name }}</p>
+</body>
+</html>

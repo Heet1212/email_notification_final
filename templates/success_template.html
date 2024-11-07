@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ templatePlaceHolder.job_name }} - {{ templatePlaceHolder.job_status }}</title>
+</head>
+<body>
+    <h2>Job {{ templatePlaceHolder.job_name }} - {{ templatePlaceHolder.job_status }}</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>Job ID</th>
+            <td>{{ templatePlaceHolder.job_id }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ templatePlaceHolder.job_status }}</td>
+        </tr>
+        <tr>
+            <th>Start Time</th>
+            <td>{{ templatePlaceHolder.job_started_on }}</td>
+        </tr>
+        <tr>
+            <th>End Time</th>
+            <td>{{ templatePlaceHolder.job_ended_on }}</td>
+        </tr>
+        <tr>
+            <th>Row Count</th>
+            <td>{{ templatePlaceHolder.row_count }}</td>
+        </tr>
+        <tr>
+            <th>Balance Sum</th>
+            <td>{{ templatePlaceHolder.balance_sum }}</td>
+        </tr>
+        <tr>
+            <th>Source Table</th>
+            <td>{{ templatePlaceHolder.dataframe.source_table }}</td>
+        </tr>
+
+    </table>
+
+    <h3>Sample Data (First 10 Rows from Target Table):</h3>
+    {% if sample_rows_html  %}
+        {{ sample_rows_html  | safe }}
+    {% else %}
+        <p>No sample data available.</p>
+    {% endif %}
+
+
+</body>
+</html>

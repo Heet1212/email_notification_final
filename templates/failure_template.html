@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <p>Dear {{ name }},</p>
+    <p>We regret to inform you that the job <strong>{{ jobid }}</strong> has failed.</p>
+
+    <table>
+        <tr><th>Job ID</th><td>{{ jobid }}</td></tr>
+        <tr><th>Job Started On</th><td>{{ job_started_on }}</td></tr>
+        <tr><th>Status</th><td>Failed</td></tr>
+        <tr><th>Row Count</th><td>{{ row_count }}</td></tr>
+    </table>
+
+    <h3>Error Details</h3>
+    <p><strong>Error Message:</strong> {{ error_message }}</p>
+
+    <h3>Source and Target Table Details</h3>
+    <table>
+        <tr><th>Source Table</th><td>{{ df_placeholder.table1_df }}</td></tr>
+        <tr><th>Target Table</th><td>{{ df_placeholder.table_df }}</td></tr>
+    </table>
+
+    <p>This is an automated notification regarding the job status. If you have any questions, please reach out.</p>
+    <p>Best regards,<br>Your Automation Team</p>
+</body>
+</html>
